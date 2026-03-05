@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 3 elements from project &apos;Hotel&apos;&#x0D;&#x0A;- Original project: &apos;Hotel&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     fonts&#x0D;&#x0A;     Radisson Hotel-doc&#x0D;&#x0A;     scss" description="Delete elements" element1="src/main/webapp/Radisson Hotel-doc" element2="src/main/webapp/fonts" element3="src/main/webapp/scss" elements="0" flags="589830" id="org.eclipse.jdt.ui.delete" resources="3" stamp="1728884282841" subPackages="false" version="1.0"/>
+</session>

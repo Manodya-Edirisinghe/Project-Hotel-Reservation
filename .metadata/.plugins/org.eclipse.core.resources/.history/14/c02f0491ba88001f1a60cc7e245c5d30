@@ -1,0 +1,130 @@
+@charset "UTF-8";
+
+/* External CSS for display.jsp */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #e0f7fa;
+    margin: 0;
+    padding: 0;
+    padding-top: 80px; /* Account for the fixed header */
+    padding-bottom: 60px; /* Account for the fixed footer */
+}
+
+/* Header */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #6495ED;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* BookEase text in Header */
+.brand-name {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    color: white;
+}
+
+/* Nav Bar */
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-content: flex-end;
+    flex-wrap: nowrap; /* Prevents wrapping to the next line */
+    overflow: hidden; /* Hides overflow if any */
+}
+
+.main-nav ul li {
+    margin-left: 10px; /* Reduce margin to save space */
+}
+
+.main-nav ul li a {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 14px; /* Reduce font size slightly to save space */
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    padding: 8px; /* Add some padding to ensure clickable space */
+}
+
+.main-nav ul li a.profile {
+    color: #45a049;
+    background-color: #DFF0D8;
+    border-radius: 30px;
+    padding: 5px 10px; /* Reduce padding on 'My Profile' button */
+    font-size: 14px; /* Adjust font size */
+    white-space: nowrap; /* Ensure text doesn't wrap */
+}
+
+.container {
+    width: 90%;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: 600;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+table th {
+    background-color: #A594F9;
+    color: white;
+    font-weight: 600;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+table td a button, table td form button {
+    background-color: #A594F9;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+table td a button:hover, table td form button:hover {
+    background-color: #6f6df9;
+}
+
+form {
+    display: inline;
+}
+

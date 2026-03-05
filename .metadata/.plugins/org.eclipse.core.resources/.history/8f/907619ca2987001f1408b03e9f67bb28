@@ -1,0 +1,43 @@
+package com.registereduser;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class reservationController {
+	
+	//connect DB
+	private static boolean isSuccess;
+	private static Connection con=null;
+	private static Statement stmt=null;
+	private static ResultSet rs=null;
+	
+	//Insert data function
+	
+	public static boolean insertdata(String customer_name, String phone, int no_of_guests, Date date, String room_type, String payment_method) {
+		
+		boolean isSuccess=false;
+		try {
+			//DB Connection call
+			con=DBConnection.getConnection();
+			stmt=con.createStatement();
+			
+			//sql query
+			String sql="insert into reservation values(0, '"+customer_name+"', '"+phone+"', '"+no_of_guests+"', '"+date+"', '"+room_type+"', '"+payment_method+"')";
+			int rs=stmt.executeUpdate(sql);
+			if(rs>0) {
+				isSuccess=true;
+			}
+			else {
+				isSuccess=false;
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return isSuccess;
+		
+	}
+
+}

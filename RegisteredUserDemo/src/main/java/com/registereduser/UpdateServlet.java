@@ -1,0 +1,50 @@
+package com.registereduser;
+
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/UpdateServlet")
+public class UpdateServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String id=request.getParameter("id");
+		String customer_name=request.getParameter("customer_name");
+		String phone=request.getParameter("phone");
+		String noofguests=request.getParameter("no_of_guests");
+		int no_of_guests=Integer.parseInt(noofguests);
+		String date = request.getParameter("date");
+		java.sql.Date sqlDate = java.sql.Date.valueOf(date);
+		String room_type=request.getParameter("room_type");
+		String payment_method=request.getParameter("payment_method");
+		
+		boolean isTrue;
+		isTrue=reservationController.updatedata(id, customer_name, phone, no_of_guests, sqlDate, room_type, payment_method);
+		
+		if(isTrue==true) {
+			List<reservationModel> reservationdetails=reservationController.getById(id);
+			request.setAttribute("reservationdetails", reservationdetails);
+			
+			String alertMessage="Data updated succesfully";
+			response.getWriter().println("<script> alert('"+alertMessage+"');window.location.href='GetAllServlet'</script>");
+		}
+		else {
+			RequestDispatcher dis2=request.getRequestDispatcher("wrong.jsp");
+			dis2.forward(request, response);
+		}
+		
+	}
+
+}

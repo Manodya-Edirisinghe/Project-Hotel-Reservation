@@ -1,0 +1,181 @@
+package com.registereduser;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+public class reservationController {
+	
+	//connect DB
+	private static boolean isSuccess;
+	private static Connection con=null;
+	private static Statement stmt=null;
+	private static ResultSet rs=null;
+	
+	//Insert data function
+	
+	public static boolean insertdata(String customer_name, String phone, int no_of_guests, Date date, String room_type, String payment_method) {
+		
+		boolean isSuccess=false;
+		try {
+			//DB Connection call
+			con=DBConnection.getConnection();
+			stmt=con.createStatement();
+			
+			//sql query
+			String sql="insert into reservation values(0, '"+customer_name+"', '"+phone+"', '"+no_of_guests+"', '"+date+"', '"+room_type+"', '"+payment_method+"')";
+			int rs=stmt.executeUpdate(sql);
+			if(rs>0) {
+				isSuccess=true;
+			}
+			else {
+				isSuccess=false;
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return isSuccess;
+		
+	}
+	
+	//getbyId
+	
+	public static List<reservationModel> getById (String Id) {
+		
+		int convertedID=Integer.parseInt(Id);
+		ArrayList<reservationModel>reservation=new ArrayList<>();
+		
+		try {
+			//DB connection
+			
+			con=DBConnection.getConnection();
+			stmt=con.createStatement();
+			
+			//query
+			
+			String sql="select * from reservation where id '"+convertedID+"'";
+			
+			rs=stmt.executeQuery(sql);
+			
+			while(rs.next()) {
+				int id=rs.getInt(1);
+				String customer_name=rs.getString(2);
+				String phone=rs.getString(3);
+				int no_of_guests=rs.getInt(4);
+				java.sql.Date date=rs.getDate(5);
+				String room_type=rs.getString(6);
+				String payment_method=rs.getString(7);
+				
+				reservationModel rm=new reservationModel(id, customer_name, phone, no_of_guests, date, room_type, payment_method);
+				reservation.add(rm);
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return reservation;	
+	}
+	
+	//get all data
+	public static List<reservationModel>getAllReservation(){
+		
+		ArrayList<reservationModel>reservations=new ArrayList<>();
+		
+		try {
+			//DB connection
+			
+			con=DBConnection.getConnection();
+			stmt=con.createStatement();
+			
+			//query
+			
+			String sql="select * from reservation";
+			
+			rs=stmt.executeQuery(sql);
+			
+			while(rs.next()) {
+				int id=rs.getInt(1);
+				String customer_name=rs.getString(2);
+				String phone=rs.getString(3);
+				int no_of_guests=rs.getInt(4);
+				java.sql.Date date=rs.getDate(5);
+				String room_type=rs.getString(6);
+				String payment_method=rs.getString(7);
+				
+				reservationModel rm=new reservationModel(id, customer_name, phone, no_of_guests, date, room_type, payment_method);
+				reservations.add(rm);
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return reservations;	
+		
+	}
+	
+	//update data
+	public static boolean updatedata(String id, String customer_name, String phone, int no_of_guests, Date date, String room_type, String payment_method) {
+		
+		try {
+			//DB connection
+			
+			con=DBConnection.getConnection();
+			stmt=con.createStatement();
+			
+			//sql query
+			String sql="update reservation set customer_name='"+customer_name+"', phone='"+phone+"', no_of_guests='"+no_of_guests+"', date='"+date+"', room_type='"+room_type+"', payment_method='"+payment_method+"'"
+					+ "where id='"+id+"'";
+			
+			int rs=stmt.executeUpdate(sql);
+			if(rs>0) {
+				isSuccess=true;
+			}
+			else {
+				isSuccess=false;
+			}
+		
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return isSuccess;
+		
+	}
+	
+	//delete data
+	
+	public static boolean deletedata(String id) {
+		int convID=Integer.parseInt(id);
+		
+		try {
+			//DB Connection
+			
+			con=DBConnection.getConnection();
+			stmt=con.createStatement();
+			String sql="delete from reservation where id='"+convID+"'";
+			
+			int rs=stmt.executeUpdate(sql);
+			if(rs>0) {
+				isSuccess=true;
+			}
+			else {
+				isSuccess=false;
+			}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return isSuccess;
+		
+	}
+	
+	
+
+}

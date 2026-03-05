@@ -1,0 +1,90 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Homepage - BookEase</title>
+    <link href="reservationStyle.css" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+	<header class="main-header">
+        <div class="logo-container">
+            <h1 class="brand-name">BookEase</h1>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="home.jsp" class="active">Home</a></li>
+                <li><a href="reservation.jsp">Reservations</a></li>
+                <li><a href="price.jsp">View Prices</a></li>
+                <li><a href="about.jsp">About Us</a></li>
+                <li><a href="contact.jsp">Contact</a></li>
+                <li><a href="profile.jsp">My Profile</a></li>
+           
+            </ul>
+        </nav>
+     
+    </header>
+    <div class="container">
+        <header>Make Reservation</header>
+        <form action="reservationServlet" method="post">
+            <div class="fields top-fields">
+                <div class="input-field">
+                    <label>Name</label>
+                    <input type="text" name="customer_name" placeholder="Enter Your Name" required>
+                </div>
+
+                <div class="input-field">
+                    <label>Phone Number</label>
+                    <input type="text" name="phone" placeholder="Enter Your Phone Number" required>
+                </div>
+
+                <div class="input-field">
+                    <label>Number of Guests</label>
+                    <select name="no_of_guests" required>
+                        <option value="" disabled selected>Select Number of Guests</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="fields bottom-fields">
+                <div class="input-field">
+                    <label>Date</label>
+                    <input type="date" name="date" required>
+                </div>
+
+                <div class="input-field">
+                    <label>Room Type</label>
+                    <select name="room_type" required>
+                        <option value="" disabled selected>Select Room Type</option>
+                        <option value="Single">Single</option>
+                        <option value="Double">Double</option>
+                    </select>
+                </div>
+
+                <div class="input-field">
+                    <label>Payment Method</label>
+                    <select name="payment_method" required>
+                        <option value="" disabled selected>Select Payment Method</option>
+                        <option value="Credit/Debit Card">Credit/Debit Card</option>
+                        <option value="Pay Later">Pay Later</option>
+                    </select>
+                </div>
+            </div>
+
+            <input type="submit" name="submit" value="Make Reservation">
+        </form>
+    </div>
+</body>
+</html>

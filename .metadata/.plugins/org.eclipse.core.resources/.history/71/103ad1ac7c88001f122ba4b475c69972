@@ -1,0 +1,81 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Home - BookEase</title>
+    <link href="reservationStyle.css" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo-container">
+            <h1 class="brand-name">BookEase</h1>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="home.jsp" class="active">Home</a></li>
+                <li><a href="reservation.jsp">Reservations</a></li>
+                <li><a href="price.jsp">View Prices</a></li>
+                <li><a href="display.jsp">My Reservations</a></li>
+                <li><a href="about.jsp">About Us</a></li>
+                <li><a href="contact.jsp">Contact</a></li>
+                <li><a href="profile.jsp" class="profile">My Profile</a></li>
+           
+            </ul>
+        </nav>
+    </header>
+    
+     <section class="intro">
+        <h1 class="main-title">Welcome to BookEase</h1>
+        <h2 class="slogan">Your One-stop Hotel Reservation System</h2>
+        <p class="description">
+            BookEase offers a seamless and convenient hotel booking experience, providing you with access to a wide range of rooms at the best prices. Whether you're traveling solo or with family, we have the perfect accommodation for you.
+        </p>
+    </section>
+
+    <div>
+        <header>Available Rooms</header>
+        
+        <div class="room-list">
+            <!-- Room 1 -->
+            <div class="room">
+                <img src="room1.jpg" alt="Room 1" class="room-image">
+                <div class="room-details">
+                    <h2>Single Room</h2>
+                    <p>Perfect for solo travelers. Comfortable and cozy.</p>
+                    <p>Price: RS 18000/= per night</p>
+                    <a href="reservation.jsp" class="reserve-button">Reserve</a>
+                </div>
+            </div>
+
+            <!-- Room 2 -->
+            <div class="room">
+                <img src="room2.jpg" alt="Room 2" class="room-image">
+                <div class="room-details">
+                    <h2>Double Room</h2>
+                    <p>Ideal for couples. Spacious and well-furnished.</p>
+                    <p>Price: RS 20000/= per night</p>
+                    <a href="reservation.jsp" class="reserve-button">Reserve</a>
+                </div>
+            </div>
+
+            <!-- Room 3 -->
+            <div class="room">
+                <img src="room3.jpg" alt="Room 3" class="room-image">
+                <div class="room-details">
+                    <h2>Family Room</h2>
+                    <p>Great for families. Plenty of space.</p>
+                    <p>Price: RS 25000/= per night</p>
+                    <a href="reservation.jsp" class="reserve-button">Reserve</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <p>BookEase - Your one-stop hotel reservation system | &copy; 2024</p>
+    </footer>
+</body>
+</html>

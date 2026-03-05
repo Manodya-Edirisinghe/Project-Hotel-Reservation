@@ -1,0 +1,58 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My Reservations - BookEase</title>
+    <link href="displayStyle.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <h1>My Reservations</h1>
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Number of Guests</th>
+                <th>Date</th>
+                <th>Room Type</th>
+                <th>Payment Method</th>
+                <th>Action</th>
+            </tr>
+
+            <c:forEach var="reservations" items="${allreservations}">
+                <tr>
+                    <td>${reservations.id}</td>
+                    <td>${reservations.customer_name}</td>
+                    <td>${reservations.phone}</td>
+                    <td>${reservations.no_of_guests}</td>
+                    <td>${reservations.date}</td>
+                    <td>${reservations.room_type}</td>
+                    <td>${reservations.payment_method}</td>
+                    <td>
+                        <a href="update.jsp?id=${reservations.id}&customer_name=${reservations.customer_name}&phone=${reservations.phone}&no_of_guests=${reservations.no_of_guests}&date=${reservations.date}&room_type=${reservations.room_type}&payment_method=${reservations.payment_method}">
+                            <button>Update</button>
+                        </a>
+                        
+                        <form action="DeleteServlet" method="post">
+                            <input type="hidden" name="id" value="${reservations.id}">
+                            <button>Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            </c:forEach>
+        </table>
+    </div>
+
+    <footer>
+        BookEase - Your one-stop hotel reservation system | &copy; 2024
+    </footer>
+
+</body>
+</html>

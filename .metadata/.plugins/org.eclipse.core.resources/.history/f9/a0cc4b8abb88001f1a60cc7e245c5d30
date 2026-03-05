@@ -1,0 +1,86 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<%
+	String id=request.getParameter("id");
+	String customer_name=request.getParameter("customer_name");
+	String phone=request.getParameter("phone");
+	String noofguests=request.getParameter("no_of_guests");
+	int no_of_guests=Integer.parseInt(noofguests);
+	String date = request.getParameter("date");
+	java.sql.Date sqlDate = java.sql.Date.valueOf(date);
+	String room_type=request.getParameter("room_type");
+	String payment_method=request.getParameter("payment_method");
+%>
+
+<form action="UpdateServlet" method="post">
+            <div class="fields top-fields">
+            	<div class="input-field">
+                    <label>ID</label>
+                    <input type="text" name="id"  value="<%=id%>" readonly>
+                </div>
+            	
+                <div class="input-field">
+                    <label>Name</label>
+                    <input type="text" name="customer_name" value="<%=customer_name%>" required>
+                </div>
+
+                <div class="input-field">
+                    <label>Phone Number</label>
+                    <input type="text" name="phone" value="<%=phone%>" required>
+                </div>
+
+                <div class="input-field">
+                    <label>Number of Guests</label>
+                    <select name="no_of_guests" value="<%=no_of_guests%>" required>
+                        <option value="" disabled selected>Select Number of Guests</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="fields bottom-fields">
+                <div class="input-field">
+                    <label>Date</label>
+                    <input type="date" name="date" value="<%=date%>" required>
+                </div>
+
+                <div class="input-field">
+                    <label>Room Type</label>
+                    <select name="room_type" value="<%=room_type%>" required>
+                        <option value="" disabled selected>Select Room Type</option>
+                        <option value="Single">Single</option>
+                        <option value="Double">Double</option>
+                        <option value="Family">Family</option>
+                    </select>
+                </div>
+
+                <div class="input-field">
+                    <label>Payment Method</label>
+                    <select name="payment_method" value="<%=payment_method%>" required>
+                        <option value="" disabled selected>Select Payment Method</option>
+                        <option value="Credit/Debit Card">Credit/Debit Card</option>
+                        <option value="Pay Later">Pay Later</option>
+                    </select>
+                </div>
+            </div>
+
+            <input type="submit" name="submit" value="Make Reservation">
+        </form>
+</body>
+</html>

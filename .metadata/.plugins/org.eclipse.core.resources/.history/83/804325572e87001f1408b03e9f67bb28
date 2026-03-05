@@ -1,0 +1,39 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Reservations</h1>
+	
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Phone</th>
+			<th>Number of Guests</th>
+			<th>Date</th>
+			<th>Room Type</th>
+			<th>Payment Method</th>
+		</tr>
+		
+		<c:forEach var="reservations" items="${allreservations}">
+		
+		<tr>
+			<td>${reservatios.id}</td>
+			<td>${reservatios.customer_name}</td>
+			<td>${reservatios.phone}</td>
+			<td>${reservatios.no_of_guests}</td>
+			<td>${reservatios.date}</td>
+			<td>${reservatios.room_type}</td>
+			<td>${reservatios.payment_method}</td>
+		</tr>
+		
+		</c:forEach>
+	</table>
+</body>
+</html>
